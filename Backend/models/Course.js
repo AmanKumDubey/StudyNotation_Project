@@ -1,18 +1,51 @@
 import mongoose from "mongoose";
-const profileSchema= new mongoose.Schema({
-    gender:{
+const courseSchema= new mongoose.Schema({
+    coursename:{
         type:String,
-    },
-    dateOfBirth:{
-        type:String,
-    },
-    about:{
-        type:String,
+        required:true,
         trim:true,
     },
-    contactNumber:{
+    courseDescription:{
+        type:String,
+        required:true,
+        trim:true,
+    },
+    instructor:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true,
+    },
+    whatyouWillLearn:{
+        type:String,
+
+    },
+    courseContent:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Section",
+        }
+    ],
+    ratingandReviews:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"RatingAndReview",
+        }
+    ],
+    price:{
         type:Number,
-        trim:true,
-    }
+    },
+    thumbnail:{
+        type:String,
+    },
+    tag:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"tag",
+    },
+    studentEnrolled:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"user"
+        }
+    ]
 });
-module.exports=mongoose.model("Profile",profileSchema);
+module.exports=mongoose.model("Course",courseSchema);
