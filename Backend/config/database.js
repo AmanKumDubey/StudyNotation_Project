@@ -4,8 +4,8 @@ import dotenv from "dotenv"
 
 dotenv.config()
 
-exports.connect= ()=>{
-    mongoose.connect(process.env.MONGODB_URL,{
+const connect= ()=>{
+    mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost:27017/yours",{
         useNewUrlParser:true,
         useUnifiedTopology:true,
     })
@@ -19,3 +19,5 @@ exports.connect= ()=>{
         process.exit(1);
     })
 };
+
+export default connect;
