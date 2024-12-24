@@ -1,10 +1,7 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv"
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-
-dotenv.config()
-
-const connect= ()=>{
+exports.connect= ()=>{
     mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost:27017/yours",{
         useNewUrlParser:true,
         useUnifiedTopology:true,
@@ -20,4 +17,3 @@ const connect= ()=>{
     })
 };
 
-export default connect;

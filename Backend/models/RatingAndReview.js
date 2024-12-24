@@ -1,21 +1,19 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
-const ratingAndReviiewScheam=new mongoose.Schema({
-
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        required:true,
-        ref:"user",
+const ratingAndReviewSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Types.ObjectId,
+        required: true,
+        ref: "User",
     },
-    rating:{
-        Type:Number,
-        required:true,
+    reating: {
+        type: Number,
+        required: true,
     },
-    review:{
-        type:String,
-        required:true,
+    reviews: {
+        type: String,
+        required: true,
     }
-    
-});
+})
 
-module.exports=mongoose.model("RatingAndReviiew",ratingAndReviiewScheam);
+module.exports = mongoose.model('RatingAndReview', ratingAndReviewSchema);

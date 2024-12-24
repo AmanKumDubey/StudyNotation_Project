@@ -1,18 +1,19 @@
-import mongoose from "mongoose";
-const categorySchema= new mongoose.Schema({
-    name:{
-        type:String,
-        required:true,
-    },
-    description:{
-        type:String,
-        required:true,
-    },
-    course:{
-        type:mongoose.Schema.Types.ObjectId,
-        required:true,
-        ref:"Course"
-    }
+const mongoose = require('mongoose');
 
+const categorySchema = new mongoose.Schema({
+    name: {
+        type : String,
+        required: true,
+    },
+    description: {
+        type: String,
+    },
+    courses: [
+        {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Course",
+        },
+    ],
 });
-module.exports=mongoose.model("Category",categorySchema);
+
+module.exports = mongoose.model("Category", categorySchema);

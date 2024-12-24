@@ -1,7 +1,7 @@
-import cloudinary from "cloudinary";
-import dotenv from "dotenv";
+const cloudinary = require("cloudinary").v2;
+require("dotenv").config();
 
-cloudinary.v2
+
 
 exports.cloudinaryConnect=()=>{
     try{
